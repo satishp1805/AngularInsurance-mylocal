@@ -13,3 +13,7 @@ h1 {
 .row{
     margin: 1%;
 }
+
+.rotate{
+    transform: rotate(15deg);
+}
