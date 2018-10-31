@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+      <table class="table">
+          <thead>
+            <tr>
+              <th>Advisor ID</th>
+              <th>Advisor Name</th>
+              <th>Advisor Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let advisor of advisorList">
+                <td>{{advisor.id}}</td>
+              <td>{{advisor.name}}</td>
+              <td>{{advisor.mobileNumber}}</td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<footer>
+  <label>Follow us</label>
+  <div class="row form-group">
+    <ul *ngFor="let item of footerList" class="list-menu">
+    <li class="list-group-item">{{item.linkText}} <a href={{item.linkRef}}><span class={{item.linkStyle}}></span></a></li>
+    </ul>
+  </div>
+</footer>

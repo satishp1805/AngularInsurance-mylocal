@@ -1,0 +1,11 @@
+<div class="form-group">
+    <label for="City Name">City Name</label>
+    <input type="text" [(ngModel)]="searchCity">
+</div>
+<app-show-branch [cityName]='searchCity' (branches)='onChange($event)'></app-show-branch>
+
+<ul>
+    <li *ngFor="let branch of branchList">
+        {{branch}}
+    </li>
+</ul>

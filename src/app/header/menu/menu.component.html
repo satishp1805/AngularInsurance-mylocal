@@ -1,0 +1,7 @@
+<nav class="navbar navbar-expand-md">
+ <ul class="navbar-nav">
+   <li *ngFor="let item of linksFromParent">
+     <a [href]="item.linkRef" [class]=item.linkStyle>{{item.linkText}}</a>
+   </li>
+ </ul>
+</nav>
