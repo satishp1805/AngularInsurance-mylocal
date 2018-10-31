@@ -1,5 +1,5 @@
 import { TestimonyComponent } from './../testimony/testimony.component';
-import { Component, OnInit, AfterViewInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ChangeDetectorRef, ViewChildren, QueryList } from '@angular/core';
 import { PolicyDetails } from './policy-details';
 
 @Component({
@@ -13,6 +13,8 @@ export class ContentComponent implements OnInit,AfterViewInit  {
   policyList: PolicyDetails[] = [];
   feedback1:string;
   feedback2:string;
+  @ViewChildren("div") selectionList:QueryList<any>;
+
   constructor(private ref: ChangeDetectorRef) {
     this.policyList.push({id:1,name:'Policy 1',description:'Description 1',amount:100});
     this.policyList.push({id:2,name:'Policy 2',description:'Description 2',amount:200});
@@ -26,5 +28,7 @@ export class ContentComponent implements OnInit,AfterViewInit  {
     this.feedback1 = this.compRef.getCorpCustomerFeedback();
     this.feedback2 = this.compRef.getRetailCustomerFeedback();
     this.ref.detectChanges();
+
+    console.log(this.selectionList);
   }
 }
