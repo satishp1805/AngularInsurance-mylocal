@@ -34,6 +34,7 @@ export class ShowPolicyDetailsComponent implements OnInit {
         this.policyListAll[this.indexPos]=resp;
         this.form.reset();
         this.buttonText = "Add";
+        this.toggleForm=false;
       });
     } else if (this.buttonText === "Add") {
       this.insuranceService.addPolicy(this.policyData).subscribe(resp=>{
@@ -44,6 +45,7 @@ export class ShowPolicyDetailsComponent implements OnInit {
   }
 
   update(policy){
+    this.toggleForm=true;
     this.buttonText = "Update";
     this.policyData = policy;
     this.indexPos = this.policyListAll.indexOf(this.policyData);
