@@ -1,3 +1,4 @@
+import { PolicyDetails } from './content/policy-details';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -14,4 +15,10 @@ export class InsuranceAPIService {
     const adviseURL = this.baseURL+'advisors';
     return this.http.get<InsuranceAdvisor[]>(adviseURL);
   }
+
+  findAllPolicies():Observable<PolicyDetails[]>{
+    const adviseURL = this.baseURL+'lifeInsurance';
+    return this.http.get<PolicyDetails[]>(adviseURL);
+  }
+
 }

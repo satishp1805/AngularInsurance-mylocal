@@ -1,8 +1,7 @@
 export interface PolicyDetails {
     id:number;
-    name:string;
-    description:string;
-    amount:number;
-
+    policyHolderName:string;
+    policyAmount:number;
+    maturityDate:string;
     
 }

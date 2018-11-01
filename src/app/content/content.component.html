@@ -9,6 +9,24 @@
       </div>
     </div>
   </div>
+  <div class="row">
+      <table class="table">
+          <thead>
+            <tr>
+              <th>Policy ID</th>
+              <th>Policy Name</th>
+              <th>Policy Maturity Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let policy of policyListAll">
+                <td>{{policy.policyHolderName | uppercase}}</td>
+              <td>{{policy.policyAmount | currency:'INR':'symbol'}}</td>
+              <td>{{policy.maturityDate | date:'medium'}}</td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
   <div class="col-md-12" >
     <h2>What our customers say!</h2>
     <p>{{feedback1}}</p>
