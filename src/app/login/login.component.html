@@ -1,3 +1,11 @@
-<div class="col-md-12">
-  <button (click)="validate()">Login</button>
-</div>
+<form [formGroup]="loginForm" (ngSubmit)="validate()" >
+  <ng-container *ngFor="let config of formConfig" >
+    <div class="form-group">
+      <label for="">{{config.label}}</label>
+      <input [type]="config.type" [name]="config.name" [formControlName]="config.name" class="form-control">
+    </div>
+  </ng-container>
+  <div *ngIf="(loginForm.dirty || loginForm.touched) && loginForm.invalid" >User Name and Password is required</div>
+
+<input type="submit" value="Signin" class="btn btn-info" [disabled]="loginForm.invalid">
+</form>
