@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngIf="toggleForm" >
   <form #f="ngForm" (ngSubmit)="submit(f.value)">
     <div class="form-group">
       <label for="id">ID</label>
@@ -31,6 +31,8 @@
       <td>Search:</td>
       <td>
         <input type="text" [(ngModel)]="searchName"></td>
+        <td><button (click)="toggleForm=!toggleForm"
+          [ngClass]="{'fa':true,'fa-arrow-down':toggleForm,'fa-arrow-up':!toggleForm}"></button></td>
     </tr>
     <tbody>
       <tr *ngFor="let policy of policyListAll | customFilter:'policyHolderName':searchName | paginate:{itemsPerPage:2,currentPage:page}">

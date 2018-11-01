@@ -20,7 +20,7 @@ export class ShowPolicyDetailsComponent implements OnInit {
   }
   @ViewChild('f') form:any;
   indexPos: number;
-
+  toggleForm:boolean=false;
   constructor(private insuranceService:InsuranceAPIService) {
     this.insuranceService.findAllPolicies().subscribe(data=>this.policyListAll=data);
   }
