@@ -17,6 +17,7 @@ export class ContentComponent implements OnInit,AfterViewInit  {
   policyListAll: PolicyDetails[] = [];
   feedback1:string;
   feedback2:string;
+  searchName : string ='';
   @ViewChildren("div") selectionList:QueryList<any>;
 
   constructor(private ref: ChangeDetectorRef,private insuranceService:InsuranceAPIService) {

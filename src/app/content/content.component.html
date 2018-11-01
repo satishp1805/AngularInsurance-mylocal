@@ -16,10 +16,15 @@
               <th>Policy ID</th>
               <th>Policy Name</th>
               <th>Policy Maturity Date</th>
+              
             </tr>
           </thead>
+          <tr>
+              <td>Search:</td>
+              <td><input type="text" [(ngModel)]="searchName"></td>
+            </tr>
           <tbody>
-            <tr *ngFor="let policy of policyListAll">
+            <tr *ngFor="let policy of policyListAll | customFilter:'policyHolderName':searchName">
                 <td>{{policy.policyHolderName | uppercase}}</td>
               <td>{{policy.policyAmount | currency:'INR':'symbol'}}</td>
               <td>{{policy.maturityDate | date:'medium'}}</td>

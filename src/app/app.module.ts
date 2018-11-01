@@ -18,6 +18,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { HighlightDirective } from './highlight.directive';
 import { AddElementDirective } from './add-element.directive';
 import { ShowLocationComponent } from './show-location/show-location.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ShowLocationComponent } from './show-location/show-location.component';
     LogoutComponent,
     HighlightDirective,
     AddElementDirective,
-    ShowLocationComponent
+    ShowLocationComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
