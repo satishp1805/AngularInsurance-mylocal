@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HighlightDirective } from './highlight.directive';
 import { AddElementDirective } from './add-element.directive';
+import { ShowLocationComponent } from './show-location/show-location.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AddElementDirective } from './add-element.directive';
     LoginComponent,
     LogoutComponent,
     HighlightDirective,
-    AddElementDirective
+    AddElementDirective,
+    ShowLocationComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,7 @@ import { AddElementDirective } from './add-element.directive';
     FormsModule
   ],
   providers: [HttpClient],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[ShowLocationComponent]
 })
 export class AppModule { }

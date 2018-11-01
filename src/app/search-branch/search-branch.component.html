@@ -1,6 +1,8 @@
+<p>Search from 800 branches</p>
 <div class="form-group">
+    <ng-template #locationInfo></ng-template>
     <label for="City Name">City Name</label>
-    <input type="text" [(ngModel)]="searchCity">
+    <input type="text" [(ngModel)]="searchCity" (focus)='add()' (blur)="remove()">
 </div>
 <app-show-branch [cityName]='searchCity' (branches)='onChange($event)'></app-show-branch>
 
