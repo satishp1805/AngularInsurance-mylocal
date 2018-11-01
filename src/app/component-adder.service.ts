@@ -15,13 +15,15 @@ export class ComponentAdderService {
   }
 
   // what to add
-  addComponent(compToAdd:any): void {
+  addComponent(compToAdd:any): any {
     // create and register factory in resolver for entry components
     const factory = this.resolver.resolveComponentFactory(compToAdd);
     // Access the viewref's injector to inject the component
     const componentRef = factory.create(this.viewRef.parentInjector);
     // insert the hostview of the component to be injected into viewcontainerref
     this.viewRef.insert(componentRef.hostView);
+
+    return componentRef;
   }
 
   remove(){

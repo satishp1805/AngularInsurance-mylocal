@@ -25,7 +25,14 @@ export class SearchBranchComponent implements OnInit {
 
   add(){
     this.compAddService.setViewRef(this.viewref);
-    this.compAddService.addComponent(ShowLocationComponent);
+    const comp = this.compAddService.addComponent(ShowLocationComponent);
+    const locationComponent = <ShowLocationComponent>comp.instance;
+    locationComponent.selectedLocation.subscribe(value => {
+      this.searchCity=value;
+      if (value!=='') {
+        this.remove();
+      }
+    } , err => console.log(err));
   }
 
   remove(){
