@@ -1,49 +1,37 @@
-<div class="row" *ngIf="toggleForm" >
-  <form #f="ngForm" (ngSubmit)="submit(f.value)" ngNativeValidate>
-    <div class="form-group">
-      <label for="id">ID</label>
-      <input type="number" name="id" [(ngModel)]="policyData.id" class="form-control"></div>
-    <div class="form-group">
-      <label for="policyHolderName">Policy Holder Name</label>
-      <input type="text" name="policyHolderName" [(ngModel)]="policyData.policyHolderName"
-       class="form-control" required></div>
-    <div class="form-group">
-      <label for="policyAmount">Policy Amount</label>
-      <input type="text" name="policyAmount" [(ngModel)]="policyData.policyAmount" class="form-control"></div>
-    <div class="form-group">
-      <label for="maturityDate">Maturity Date</label>
-      <input type="date" name="maturityDate" [(ngModel)]="policyData.maturityDate" class="form-control"></div>
+<form #f='ngForm' (ngSubmit) ="submit(f.value)" ngnativeValidate>
+  <div>
+   <label for ="id">Id</label>
+   <input type ="text" name ='id' [(ngModel)] ='policyData.id'>
+</div>
 
-    <div class="form-group">
-      <label for=""></label>
-      <input type="submit" name="submit" [value]="buttonText" class="btn btn-danger"></div>
-  </form>
-</div>
-<div class="row">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Policy ID</th>
-        <th>Policy Name</th>
-        <th>Policy Maturity Date</th>
-      </tr>
-    </thead>
-    <tr>
-      <td>Search:</td>
-      <td>
-        <input type="text" [(ngModel)]="searchName"></td>
-        <td><button (click)="toggleForm=!toggleForm"
-          [ngClass]="{'fa':true,'fa-arrow-down':toggleForm,'fa-arrow-up':!toggleForm}"></button></td>
-    </tr>
-    <tbody>
-      <tr *ngFor="let policy of policyListAll | customFilter:'policyHolderName':searchName | paginate:{itemsPerPage:2,currentPage:page}">
-        <td>{{policy.policyHolderName | uppercase}}</td>
-        <td>{{policy.policyAmount | currency:'INR':'symbol'}}</td>
-        <td>{{policy.maturityDate | date:'medium'}}</td>
-        <td><i class="fa fa-2x fa-edit" (click)="update(policy)"></i></td>
-        <td><i class="fa fa-2x fa-remove" (click)="remove(policy)"></i></td>
-      </tr>
-    </tbody>
-  </table>
-  <pagination-controls (pageChange)="page=$event"></pagination-controls>
-</div>
+<div><label for="policyHolderName">Policy Holder Name</label><input type="text" name='policyHolderName' [(ngModel)] ='policyData.policyHolderName' required></div>
+<div><label for="policyAmount">Policy Amout</label><input type="text" name='policyAmount' [(ngModel)] ='policyData.policyAmount'></div>
+<div><label for="meturityDate"></label>Meturity Dates<input type="date" name='maturityDate' [(ngModel)] ='policyData.maturityDate'></div>
+<div><label for=""></label><input type="submit" [value]='buttonText'></div>
+
+</form>
+<table class="table table-borderd table-striped">
+  <tr>
+<td><label>Enter name</label></td>
+ <td><input [(ngModel)]='searchName'></td>
+  </tr>
+<tr>
+  <th>ID</th>
+  <th>Policy Holder Name</th>
+  <th>Policy Amount</th>
+  <th>Maturity Date</th>
+</tr>
+<tr *ngFor ="let eachPolicy of polictyList | filter: 'policyHolderName':searchName | paginate: {itemsPerPage:2,currentPage:page}">
+<td>{{eachPolicy.id}}</td>
+<td>{{eachPolicy.policyHolderName}}</td>
+
+<td>{{eachPolicy.policyAmount | currency : 'INR' : 'symbol'}}</td>
+<td>{{eachPolicy.maturityDate | date: 'medium'}}</td>
+ <td><button  calss='fa fa-2x fa-edit' (click)="update(eachPolicy)"></button></td>
+ <td><button  calss='fa fa-2x fa-remove' (click)="remove(eachPolicy)"></button></td>
+
+</tr>
+
+</table>
+
+<pagination-controls (pageChange) ='page=$event'></pagination-controls>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PageLink } from './pagelink';
+import { APP_BASE_HREF } from '@angular/common';
+import { PageLink } from '../page-link';
 
 @Component({
   selector: 'app-footer',
@@ -7,11 +8,21 @@ import { PageLink } from './pagelink';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  
+  links: PageLink[]  =[
+    {linkText: 'Twitter', linkStyle: 'fa fa-2x fa-twitter'},
+    {linkText: 'facebook', linkStyle: 'fa fa-2x fa-facebook'},
+    {linkText: 'Instagram', linkStyle: 'fa fa-2x fa-Instagram'}
 
-  footerList: PageLink[] = [{ linkText: 'Facebook', linkRef: 'https://www.fb.com/insurance',linkStyle: 'fa fa-2x fa-facebook' },
-  { linkText: 'Instagram', linkRef: 'https://www.instagram.com/insurance',linkStyle: 'fa fa-2x fa-instagram' },
-  { linkText: 'Twitter', linkRef: 'https://www.twitter.com/insurance',linkStyle: 'fa fa-2x fa-twitter' }]
-  constructor() { }
+  ];
+  
+  //footerHeading:string;
+  //links: string[];
+  constructor() { 
+
+    //this.footerHeading ='Follow on';
+    //this.links=['Google', 'Face Book','Twitter'];
+  }
 
   ngOnInit() {
   }

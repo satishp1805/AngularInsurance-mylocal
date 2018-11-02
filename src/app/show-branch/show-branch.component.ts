@@ -7,23 +7,23 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class ShowBranchComponent implements OnInit {
 
+
   @Input() cityName:string;
-  @Output() branches:EventEmitter<string[]> = new EventEmitter<string[]>();
-  constructor() { 
-    console.log("Constructor "+this.cityName);
-  }
-
+  @Output()  branches:EventEmitter<string[]> = new EventEmitter<string[]>(); 
+  constructor() {
+    console.log(this.cityName);
+   }
+   
+   
   ngOnInit() {
-    console.log("Init "+this.cityName);
   }
-
-  sendBranches(){
-    if (this.cityName === 'hyd') {
-      this.branches.emit(['Lingampally','Madhapur','Miyapur','Hitech']);
-    }else{
-      this.branches.emit(['Anna Nagar','Gandhi Nagar','Indira Nagar','Nehru Nagar']);
-    }
-    
-  }
-
+   sendBranches(){
+     console.log("test----"+this.cityName);
+     if (this.cityName =='hyd'){
+      this.branches.emit(['kukatipally','madhapur','asrao']);
+      
+     }else{
+      this.branches.emit(['kukatipally2','madhapur2','asrao2']);
+     }
+   }
 }

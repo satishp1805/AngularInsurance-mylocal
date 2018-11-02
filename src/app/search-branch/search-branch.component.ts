@@ -1,41 +1,42 @@
-import {Component, OnInit, ViewChild, ViewContainerRef }from '@angular/core'; 
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { viewDef } from '@angular/core/src/view';
 import { ComponentAdderService } from '../component-adder.service';
 import { ShowLocationComponent } from '../show-location/show-location.component';
 
-@Component( {
-  selector:'app-search-branch', 
-  templateUrl:'./search-branch.component.html', 
-  styleUrls:['./search-branch.component.css']
+@Component({
+  selector: 'app-search-branch',
+  templateUrl: './search-branch.component.html',
+  styleUrls: ['./search-branch.component.css']
 })
 export class SearchBranchComponent implements OnInit {
 
-  @ViewChild('locationInfo',  {read:ViewContainerRef}) 
-  viewref:ViewContainerRef; 
-  
-  searchCity:string = ''; 
-  branchList:string[]; 
-  constructor(private compAddService: ComponentAdderService) {}
+  searchCity='';
+  branchList:string[];
+  @ViewChild('locationInfo',{read:ViewContainerRef}) viewRef:ViewContainerRef
+  constructor(private service:ComponentAdderService) { }
 
   ngOnInit() {
   }
-
-  onChange(val) {
-    this.branchList = val; 
+  onChange(val){
+    console.log("test2---"+val);
+    this.branchList =val;
   }
-
   add(){
-    this.compAddService.setViewRef(this.viewref);
-    const comp = this.compAddService.addComponent(ShowLocationComponent);
-    const locationComponent = <ShowLocationComponent>comp.instance;
-    locationComponent.selectedLocation.subscribe(value => {
-      this.searchCity=value;
-      if (value!=='') {
-        this.remove();
+    this.service.setViewRef(this.viewRef);
+    //this.service.addComponent(ShowLocationComponent);
+    const comp = this.service.addComponent(ShowLocationComponent);
+    const locationComp =(<ShowLocationComponent>comp.instance)
+    locationComp.selectedLocation.subscribe(val=>
+      
+      
+      {
+        this.searchCity =val;
+        if(val != '')
+          this.remove();
       }
-    } , err => console.log(err));
+      );
   }
-
   remove(){
-    this.compAddService.remove();
+    this.viewRef.detach();
   }
 }

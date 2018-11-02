@@ -1,8 +1,16 @@
-<footer>
-  <label>Follow us</label>
-  <div class="row form-group">
-    <ul *ngFor="let item of footerList" class="list-menu">
-    <li class="list-group-item">{{item.linkText}} <a href={{item.linkRef}}><span class={{item.linkStyle}}></span></a></li>
-    </ul>
+<br/>
+<div style="float:top">
+    
+      {{footerHeading}}
+   
   </div>
-</footer>
+
+<ul style="float:bottom">
+<li *ngFor ='let eachlink of links'>
+  <a href={{eachlink}} >{{eachlink.linkText}}</a>
+  </li>
+
+
+</ul>
+
+

@@ -1,20 +1,15 @@
-<div class="container">
-  <div class="row">
-      <table class="table">
-          <thead>
-            <tr>
-              <th>Advisor ID</th>
-              <th>Advisor Name</th>
-              <th>Advisor Phone</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let advisor of advisorList">
-                <td>{{advisor.id}}</td>
-              <td>{{advisor.name}}</td>
-              <td>{{advisor.mobileNumber}}</td>
-            </tr>
-          </tbody>
-        </table>
-  </div>
-</div>
+<table class="table table-striped">
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Mobile Number</th>
+</tr>
+<tr  *ngFor ='let eachAdvisor of advisorList' >
+   <td> {{eachAdvisor.id}} </td>
+   <td> {{eachAdvisor.name}} </td>
+   <td> {{eachAdvisor.mobilenumber}} </td>
+
+</tr>
+
+
+</table>

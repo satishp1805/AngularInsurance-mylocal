@@ -1,5 +1,5 @@
-import { ComponentCommunicationService } from './../component-communication.service';
 import { Component, OnInit } from '@angular/core';
+import { ComponentCommunicationService } from '../component-communication.service';
 
 @Component({
   selector: 'app-logout',
@@ -12,8 +12,8 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit() {
   }
+  signout(){
+    this.service.changeMessage('logged');
 
-  validate(){
-    this.service.changeMessage('logout');
   }
 }

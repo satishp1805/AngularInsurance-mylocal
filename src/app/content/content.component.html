@@ -1,23 +1,20 @@
-<div>
-  <div class="row">
-    <div class="col-md-4" *ngFor="let policy of policyList">
-      <div class="divBorder">
-        <div class="text-center alert alert-info font-weight-bold"><label for="">Policy Name:</label> {{policy.name}}</div>
-        <div class="text-center"><label for="">Policy Description:</label> {{policy.description}}</div>
-        <div class="text-center"><label for="">Policy Amount:</label> {{policy.amount}}</div>
-        <div class="text-center"><a id="showmore" href="#">More <i class="fa fa-chevron-circle-down"></i></a></div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col-md-12" >
-    <h2>What our customers say!</h2>
-    <p>{{feedback1}}</p>
-    <p>{{feedback2}}</p>
-    <app-testimony></app-testimony>
-  </div>
-</div>
+<br/>
+<br/>
+<div class="card-deck">
+  <div *ngFor="let eachPolicy of policyInfo">
+   <div>
+     <div class="card-header">{{eachPolicy.policyName}}</div>
+     <div class="card-body">{{eachPolicy.policyDesc}}</div>
+     <div class="card-body">{{eachPolicy.policyAmount}}</div>
+   </div>
 
-<section #section1></section>
-<section #section2></section>
-<section #section3></section>
+  </div>
+<h1>what our customers say</h1>
+
+<p>{{feedback1}}</p>
+
+<p>{{feedback2}}</p>
+  
+<app-testimony></app-testimony>
+
+</div>

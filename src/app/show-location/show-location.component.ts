@@ -7,16 +7,12 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./show-location.component.css']
 })
 export class ShowLocationComponent implements OnInit {
-
-  selectedLocation:BehaviorSubject<string> = new BehaviorSubject('');
+  selectedLocation : BehaviorSubject<string> = new BehaviorSubject('');
   constructor() { }
-
-  ngOnInit() {
+  caputure(val){
+   this.selectedLocation.next(val);
   }
-
-  capture(val:string){
-    console.log(val);
-    this.selectedLocation.next(val);
+  ngOnInit() {
   }
 
 }

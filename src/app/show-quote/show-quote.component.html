@@ -1,6 +1,5 @@
-<label for="">Enter your age</label>
-<input type="text" name="" id="" [(ngModel)]="age" (blur)="changeStatus()" >
-<input type="button" value="Get Quote" [disabled]="isDisabled" (click)="showPolicy()" >
-
+<label>Enter your Age</label>
+<input type="text" [(ngModel)] = 'age' (blur) ='changeStatus()'  />
+<input type="button" [disabled] ="isDisabled" value ='quote display' (click)='showPolicy()'>
 <p>{{age}}</p>
 <p>{{suggestedPolicy}}</p>

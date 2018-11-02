@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { InsuranceAPIService } from '../insurance-api.service';
-import { PolicyDetails } from '../content/policy-details';
+import { PolicyDetail } from '../policy-detail';
+import { IfStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-show-policy-details',
@@ -9,55 +10,56 @@ import { PolicyDetails } from '../content/policy-details';
 })
 export class ShowPolicyDetailsComponent implements OnInit {
 
-  policyListAll: PolicyDetails[] = [];
-  searchName : string ='';
-  buttonText:string = "Add";
-  policyData: PolicyDetails = {
-    id: 0,
-    policyHolderName: '',
-    maturityDate: new Date(),
-    policyAmount: 0
-  }
   @ViewChild('f') form:any;
-  indexPos: number;
-  toggleForm:boolean=false;
-  constructor(private insuranceService:InsuranceAPIService) {
-    this.insuranceService.findAllPolicies().subscribe(data=>this.policyListAll=data);
-  }
-
+  constructor(private service: InsuranceAPIService) { }
+   polictyList: PolicyDetail[];
+   searchName='';
+   idxPox:number;
+   showUp = true;
+   showDown = false;
+   toggleForm = false;
+   policyData:PolicyDetail ={
+     id :0,
+     policyHolderName:'',
+     maturityDate: new Date(),
+     policyAmount: 0
+     
+   };
+   buttonText ='Add';
   ngOnInit() {
+    this.service.findPolicy().subscribe(data =>this.polictyList=data);
   }
-
   submit(){
-    if (this.buttonText === "Update") {
-      this.insuranceService.updatePolicy(this.policyData).subscribe(resp=>{
-        this.policyListAll[this.indexPos]=resp;
-        this.form.reset();
-        this.buttonText = "Add";
-        this.toggleForm=false;
-      });
-    } else if (this.buttonText === "Add") {
-      this.insuranceService.addPolicy(this.policyData).subscribe(resp=>{
-        this.policyListAll.push(resp);
-        this.form.reset();
-      });
-    }
+    if(this.buttonText == 'Add'){
+    this.service.addPolicy(this.policyData).subscribe(resp => {
+     this.polictyList.push(resp);
+     this.form.reset();
+    });
+  }else{
+   this.service.updatePolicy(this.policyData).subscribe(resp=>{
+    this.polictyList[this.idxPox] =resp;
+    this.form.reset();
+   });
   }
-
+    console.log(this.policyData);
+  }
   update(policy){
-    this.toggleForm=true;
-    this.buttonText = "Update";
+     this.idxPox = this.polictyList.indexOf(policy);
+    this.buttonText ='Update';
     this.policyData = policy;
-    this.indexPos = this.policyListAll.indexOf(this.policyData);
     console.log("update called");
   }
-
   remove(policy){
-    const indexPos = this.policyListAll.indexOf(policy);
-    this.insuranceService.removePolicy(policy).subscribe(resp=>{
-      this.policyListAll.splice(indexPos,1);
-    });
+    const idxPox = this.polictyList.indexOf(policy);
+    this.service.delete(policy).subscribe(resp => {
+     this.polictyList.splice(idxPox,1);
+      
+     });
     console.log("remove called");
+      }
+  showForm(){
+    this.toggleForm =!this.toggleForm;
+    this.showUp =false;
+    this.showDown=true;
   }
-
 }

@@ -5,11 +5,9 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ComponentCommunicationService {
-
-  message: BehaviorSubject<string> = new BehaviorSubject('');
+message:BehaviorSubject<string> = new BehaviorSubject('');
   constructor() { }
-
-  changeMessage(latestMessage:string){
-    this.message.next(latestMessage);
-  }
+changeMessage(latestMessage){
+  this.message.next(latestMessage);
+}
 }

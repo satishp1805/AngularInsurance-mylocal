@@ -1,38 +1,37 @@
-import { PolicyDetails } from './content/policy-details';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { InsuranceAdvisor } from './insurance-advisor';
+import { PolicyDetail } from './policy-detail';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InsuranceAPIService {
-  baseURL = "http://localhost:3000/";
-  lifeInsuranceURL = this.baseURL+'lifeInsurance';
-  headers = new HttpHeaders().set('content-type','application/json');
-  
+  baseURL = 'http://localhost:3000/';
+ policyURL = this.baseURL+'lifeInsurance';
+  header = new HttpHeaders().set('content-type','application/json');
   constructor(private http: HttpClient) { }
-
-  findAllAdvisors():Observable<InsuranceAdvisor[]>{
+  findAllAdvisors(): Observable<InsuranceAdvisor[]> {
     const adviseURL = this.baseURL+'advisors';
     return this.http.get<InsuranceAdvisor[]>(adviseURL);
   }
 
-  findAllPolicies():Observable<PolicyDetails[]>{
-    return this.http.get<PolicyDetails[]>(this.lifeInsuranceURL);
+  findPolicy(): Observable<PolicyDetail[]> {
+ //   const policyURL = this.baseURL+'lifeInsurance';
+    return this.http.get<PolicyDetail[]>(this.policyURL);
   }
-
-  addPolicy(policy:PolicyDetails) : Observable<PolicyDetails>{
-    return this.http.post<PolicyDetails>(this.lifeInsuranceURL,policy,{headers:this.headers});
+  addPolicy(policy:PolicyDetail):Observable<PolicyDetail>{
+    console.log("------------"+policy.policyHolderName);
+    return this.http.post<PolicyDetail>(this.policyURL,policy,{headers:this.header});
   }
-
-  updatePolicy(policy:PolicyDetails) : Observable<PolicyDetails>{
-    return this.http.put<PolicyDetails>(this.lifeInsuranceURL+'/'+policy.id,policy,{headers:this.headers});
+  delete(policy:PolicyDetail):Observable<PolicyDetail>{
+    console.log("------------"+policy.policyHolderName);
+     return this.http.delete<PolicyDetail>(this.policyURL+'/'+policy.id,{headers:this.header});
+    //return this.http.post<PolicyDetail>(this.policyURL,policy,{headers:this.header});
   }
-  
-  removePolicy(policy:PolicyDetails) : Observable<PolicyDetails>{
-    return this.http.delete<PolicyDetails>(this.lifeInsuranceURL+'/'+policy.id,{headers:this.headers});
+  updatePolicy(policy:PolicyDetail):Observable<PolicyDetail>{
+    console.log("------------"+policy.policyHolderName);
+    return this.http.put<PolicyDetail>(this.policyURL+'/'+policy.id,policy,{headers:this.header});
   }
-
 }
