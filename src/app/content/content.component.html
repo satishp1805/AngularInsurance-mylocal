@@ -1,20 +1,37 @@
-<br/>
-<br/>
-<div class="card-deck">
-  <div *ngFor="let eachPolicy of policyInfo">
-   <div>
-     <div class="card-header">{{eachPolicy.policyName}}</div>
-     <div class="card-body">{{eachPolicy.policyDesc}}</div>
-     <div class="card-body">{{eachPolicy.policyAmount}}</div>
-   </div>
+<h3>Our Popular Policies</h3>
+<div class='card-deck'>
+    <div *ngFor='let eachPolicy of popularPolicyList' class='card'>
+        <div class='card-header' style='text-align: center'>{{eachPolicy.policyName}}</div>
+        <div class='card-body'>{{eachPolicy.description}}</div>
+    </div>
+</div>
+<div>
+    <app-testimony></app-testimony>
+    <h2>What our Customers Say !</h2>
 
-  </div>
-<h1>what our customers say</h1>
 
-<p>{{feedback1}}</p>
+    <p>{{feedback2}}</p>
+    <div *ngIf='show' class='col-md-4'>
+        <div class='card'>
+            <p class='card-img-top' style='text-align: center'><img src='assets/images/customer.jpg' style='width: 5opx;height: 50px;;'></p>
+            <p class='card-header'>{{feedback1.name}}</p>
+            <p class='card-header'>{{feedback1.designation}}</p>
+            <p class='card-body'> {{feedback1.comment}}
+            </p>
 
-<p>{{feedback2}}</p>
-  
-<app-testimony></app-testimony>
+        </div>
+
+    </div>
+
+
 
 </div>
+
+
+<!-- <app-footer></app-footer> -->
+
+<!-- <section #section1></section>
+<section #section2></section>
+<section #section3></section> -->
+
+<!-- <p appHighLight>Info</p> -->

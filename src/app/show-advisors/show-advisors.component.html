@@ -1,15 +1,13 @@
+<h3>Our Insurance Advisors</h3>
 <table class="table table-striped">
-<tr>
-<th>ID</th>
-<th>Name</th>
-<th>Mobile Number</th>
-</tr>
-<tr  *ngFor ='let eachAdvisor of advisorList' >
-   <td> {{eachAdvisor.id}} </td>
-   <td> {{eachAdvisor.name}} </td>
-   <td> {{eachAdvisor.mobilenumber}} </td>
-
-</tr>
-
-
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Mobile Number</th>
+    </tr>
+    <tr *ngFor='let eachAdvisor of advisorList let i=index'>
+        <td>{{eachAdvisor.id}}</td>
+        <td>{{eachAdvisor.name}}</td>
+        <td>{{eachAdvisor.mobileNumber}}</td>
+    </tr>
 </table>

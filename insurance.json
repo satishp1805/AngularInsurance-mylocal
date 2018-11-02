@@ -1,0 +1,61 @@
+{
+  "lifeInsurance": [
+    {
+      "id": 103,
+      "policyHolderName": "ramesh",
+      "policyAmount": "25000",
+      "maturityDate": "2020-10-14"
+    },
+    {
+      "id": 104,
+      "policyHolderName": "sankar1",
+      "policyAmount": 150000,
+      "maturityDate": "2020-10-15"
+    },
+    {
+      "id": 105,
+      "policyHolderName": "ravitheja",
+      "policyAmount": 1450000,
+      "maturityDate": "2020-10-16"
+    },
+    {
+      "id": 106,
+      "policyHolderName": "",
+      "maturityDate": "2018-11-01T10:54:47.870Z",
+      "policyAmount": 0
+    },
+    {
+      "id": "32424",
+      "policyHolderName": "sdfasdfa",
+      "maturityDate": "2018-11-29",
+      "policyAmount": "34543543"
+    }
+  ],
+  "advisors": [
+    {
+      "id": 201,
+      "name": "satish2",
+      "mobilenumber": 4500002
+    },
+    {
+      "id": 301,
+      "name": "satish3",
+      "mobilenumber": 4500003
+    },
+    {
+      "id": 401,
+      "name": "satish4",
+      "mobilenumber": 4500005
+    },
+    {
+      "id": 501,
+      "name": "satish5",
+      "mobilenumber": 4500005
+    },
+    {
+      "id": 601,
+      "name": "satish6",
+      "mobilenumber": 4500006
+    }
+  ]
+}

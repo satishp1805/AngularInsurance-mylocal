@@ -1,16 +1,9 @@
-<br/>
-<div style="float:top">
-    
-      {{footerHeading}}
-   
-  </div>
-
-<ul style="float:bottom">
-<li *ngFor ='let eachlink of links'>
-  <a href={{eachlink}} >{{eachlink.linkText}}</a>
-  </li>
-
-
-</ul>
-
-
+<footer>
+    <p>Follow us :</p>
+    <ul>
+        <li *ngFor='let eachLink of links'>
+            <a href={{eachLink.linkText}} class={{eachLink.linkStyle}}>
+                      {{eachLink.linkText}}</a>
+        </li>
+    </ul>
+</footer>

@@ -1,0 +1,29 @@
+<div>
+  <div>
+    <app-header></app-header>
+  </div>
+  <div>
+    <app-content></app-content>
+    <app-show-advisors></app-show-advisors>
+  </div>
+  <div>
+    <app-footer></app-footer>
+  </div>
+</div>
+<app-show-quote></app-show-quote>
+<div>
+  <app-search-branch></app-search-branch>
+  <app-login>
+</app-login> 
+  <app-logout></app-logout>
+  <button appAddElement [elementToAdd] ="'h5'"
+  [elementText] ="'Added by directive'">Add</button>
+                       
+</div>
+<article></article>
+<app-menu></app-menu>
+<app-show-policy-details></app-show-policy-details>
+
+<router-outlet>
+
+</router-outlet>

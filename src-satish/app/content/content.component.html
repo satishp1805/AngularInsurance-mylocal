@@ -1,0 +1,20 @@
+<br/>
+<br/>
+<div class="card-deck">
+  <div *ngFor="let eachPolicy of policyInfo">
+   <div>
+     <div class="card-header">{{eachPolicy.policyName}}</div>
+     <div class="card-body">{{eachPolicy.policyDesc}}</div>
+     <div class="card-body">{{eachPolicy.policyAmount}}</div>
+   </div>
+
+  </div>
+<h1>what our customers say</h1>
+
+<p>{{feedback1}}</p>
+
+<p>{{feedback2}}</p>
+  
+<app-testimony></app-testimony>
+
+</div>

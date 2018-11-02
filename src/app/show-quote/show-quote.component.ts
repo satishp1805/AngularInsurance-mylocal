@@ -6,23 +6,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-quote.component.css']
 })
 export class ShowQuoteComponent implements OnInit {
-  isDisabled=true;
-  age=18;
-  suggestedPolicy:string;
+
+  isDisabled = true;
+  age = 18;
+  suggestedPolicy: string;
   constructor() { }
 
   ngOnInit() {
   }
 
-  showPolicy(){
-    if(this.age >30){
-       this.suggestedPolicy ='Jeevan Anad';
-    }else{
-      this.suggestedPolicy ='HdFC policy';
-    }
+  showPolicy() {
+
+     if (this.age > 30) {
+       this.suggestedPolicy = 'Jeevan Anand';
+     } else {
+       this.suggestedPolicy = 'Jeevan Akashy';
+     }
+    console.log('policy Details');
   }
-  changeStatus(){
-    this.isDisabled =false;
+
+
+  changeStatus() {
+    this.isDisabled = false;
   }
+
 
 }

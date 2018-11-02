@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-show-location',
@@ -7,12 +7,15 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./show-location.component.css']
 })
 export class ShowLocationComponent implements OnInit {
-  selectedLocation : BehaviorSubject<string> = new BehaviorSubject('');
+
+  selectedLocation: BehaviorSubject<string> = new BehaviorSubject('');
   constructor() { }
-  caputure(val){
-   this.selectedLocation.next(val);
-  }
+
   ngOnInit() {
   }
+  capture(val) {
+    this.selectedLocation.next(val);
+    console.log(val);
 
+  }
 }

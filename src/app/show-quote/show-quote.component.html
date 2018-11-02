@@ -1,5 +1,18 @@
-<label>Enter your Age</label>
-<input type="text" [(ngModel)] = 'age' (blur) ='changeStatus()'  />
-<input type="button" [disabled] ="isDisabled" value ='quote display' (click)='showPolicy()'>
-<p>{{age}}</p>
-<p>{{suggestedPolicy}}</p>
+<div class='col-md-4'>
+    <div class='form-group'>
+        <label>Enter your Age</label>
+
+        <!-- Two Way Binding , Event Binding -->
+        <input type='text' [(ngModel)]='age' (blur)='changeStatus()' class='form-control'>
+    </div>
+    <div class='form-group'>
+        <!-- Property Binding Non String Value and Event Binding-->
+        <input type='button' [disabled]='isDisabled' value='get Quote' (click)='showPolicy()' class='form-control btn btn-danger'>
+    </div>
+    <div>
+        <!-- Interpolation with String value -->
+        <p>Customer's Age :{{age}}</p>
+
+        <p>Suggested Policy: {{suggestedPolicy}}</p>
+    </div>
+</div>

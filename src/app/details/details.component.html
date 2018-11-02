@@ -1,0 +1,11 @@
+<div class ='row'>
+<div class='colmd-3'>
+  <a [routerLink] = "['health']">Health Insurance</a>
+<a [routerLink] = "['life']">Life Insurance</a>
+</div>
+<br />
+<div class="col-md-9">
+  <router-outlet></router-outlet>
+  <router-outlet name='life'></router-outlet>
+</div>
+</div>
